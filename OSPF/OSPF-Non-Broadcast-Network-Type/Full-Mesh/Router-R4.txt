@@ -1,0 +1,11 @@
+
+hostname R4
+
+interface Serial1/0
+encapsulation frame-relay
+ip address 10.0.0.4 255.255.255.0
+frame-relay map ip 10.0.0.1 401
+frame-relay map ip 10.0.0.2 402
+frame-relay map ip 10.0.0.3 403
+no shutdown
+
