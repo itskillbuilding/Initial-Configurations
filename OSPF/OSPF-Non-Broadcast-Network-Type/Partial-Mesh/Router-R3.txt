@@ -8,3 +8,7 @@ frame-relay map ip 10.0.0.1 301
 frame-relay map ip 10.0.0.2 302
 frame-relay map ip 10.0.0.4 301
 no shutdown
+exit
+
+router ospf 1
+network 10.0.0.0 0.0.0.255 area 0
