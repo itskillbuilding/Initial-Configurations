@@ -1,4 +1,3 @@
-
 hostname R4
 
 interface loopback 0
