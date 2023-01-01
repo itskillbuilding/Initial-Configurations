@@ -1,4 +1,3 @@
-
 hostname R3
 
 interface loopback 0
