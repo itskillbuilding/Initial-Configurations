@@ -1,0 +1,21 @@
+hostname R2
+
+interface Serial 1/1
+ip address 10.0.12.2 255.255.255.0
+no shutdown
+
+interface Serial 1/3
+encapsulation ppp
+ip address 10.0.23.2 255.255.255.0
+no shutdown
+
+interface Loopback0
+ip address 10.0.120.2 255.255.255.255
+no shutdown
+
+
+router ospf 1
+router-id 2.2.2.2
+network 10.0.12.2 0.0.0.0 area 0
+network 10.0.23.2 0.0.0.0 area 0
+network 10.0.120.2 0.0.0.0 area 0

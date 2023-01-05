@@ -1,0 +1,23 @@
+hostname R1
+
+interface Serial 1/2
+ip address 10.0.12.1 255.255.255.0
+no shutdown
+
+interface Serial 1/0
+encapsulation frame-relay
+no shutdown
+
+interface Serial 1/0.1 point-to-point
+frame-relay interface-dlci 103
+ip address 10.0.13.1 255.255.255.0
+
+interface Loopback0
+ip address 10.0.110.1 255.255.255.255
+no shutdown
+
+router ospf 1
+router-id 1.1.1.1
+network 10.0.12.1 0.0.0.0 area 0
+network 10.0.13.1 0.0.0.0 area 0
+network 10.0.110.1 0.0.0.0 area 0
