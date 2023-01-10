@@ -1,0 +1,14 @@
+hostname R5
+
+interface FastEthernet0/0
+ip address 10.0.245.5 255.255.255.0
+no shutdown
+
+interface Loopback0
+ip address 10.0.150.5 255.255.255.0
+ip ospf network point-to-point
+
+router ospf 1
+router-id 5.5.5.5
+network 10.0.245.5 0.0.0.0 area 0
+network 10.0.150.5 0.0.0.0 area 0

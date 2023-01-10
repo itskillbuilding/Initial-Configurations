@@ -1,0 +1,23 @@
+hostname R2
+
+interface Serial1/0
+encapsulation frame-relay
+ip address 10.0.123.2 255.255.255.0
+frame-relay map ip 10.0.123.1 201 broadcast
+frame-relay map ip 10.0.123.3 203
+no shutdown
+
+interface FastEthernet0/0
+ip address 10.0.245.2 255.255.255.0
+no shutdown
+
+interface Loopback0
+ip address 10.0.120.2 255.255.255.0
+ip ospf network point-to-point
+
+
+router ospf 1
+router-id 2.2.2.2
+network 10.0.123.2 0.0.0.0 area 0
+network 10.0.245.2 0.0.0.0 area 0
+network 10.0.120.2 0.0.0.0 area 0
