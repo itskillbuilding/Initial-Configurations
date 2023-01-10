@@ -10,7 +10,7 @@ ip address 10.0.23.2 255.255.255.0
 no shutdown
 
 interface Loopback0
-ip address 10.0.120.2 255.255.255.255
+ip address 10.0.120.2 255.255.255.0
 no shutdown
 
 

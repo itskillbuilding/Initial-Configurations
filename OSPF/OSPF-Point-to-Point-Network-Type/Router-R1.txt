@@ -13,7 +13,7 @@ frame-relay interface-dlci 103
 ip address 10.0.13.1 255.255.255.0
 
 interface Loopback0
-ip address 10.0.110.1 255.255.255.255
+ip address 10.0.110.1 255.255.255.0
 no shutdown
 
 router ospf 1
