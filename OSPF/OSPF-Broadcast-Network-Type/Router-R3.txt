@@ -4,7 +4,7 @@ interface Serial1/0
 encapsulation frame-relay
 ip address 10.0.123.3 255.255.255.0
 frame-relay map ip 10.0.123.1 301 broadcast
-frame-relay map ip 10.0.123.2 302
+frame-relay map ip 10.0.123.2 302 broadcast
 no shutdown
 
 interface Loopback0
