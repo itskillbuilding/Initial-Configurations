@@ -8,8 +8,8 @@ exit
 interface Serial1/0
 encapsulation frame-relay
 ip address 10.0.0.2 255.255.255.0
-frame-relay map ip 10.0.0.1 201
-frame-relay map ip 10.0.0.3 203
+frame-relay map ip 10.0.0.1 201 broadcast
+frame-relay map ip 10.0.0.3 203 broadcast
 frame-relay map ip 10.0.0.4 201
 no shutdown
 exit
