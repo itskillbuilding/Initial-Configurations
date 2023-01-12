@@ -1,0 +1,19 @@
+
+hostname R4
+
+interface loopback 0
+ip address 10.0.4.4 255.255.255.0
+ip ospf network point-to-point
+exit
+
+interface Serial1/0
+encapsulation frame-relay
+ip address 10.0.0.4 255.255.255.0
+frame-relay map ip 10.0.0.1 401
+frame-relay map ip 10.0.0.2 401
+frame-relay map ip 10.0.0.3 401
+no shutdown
+exit
+
+router ospf 1
+network 10.0.0.0 0.0.255.255 area 0
