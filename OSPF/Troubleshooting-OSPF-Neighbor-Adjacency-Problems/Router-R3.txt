@@ -1,0 +1,23 @@
+hostname R3
+access-list 100 deny ospf any any 
+access-list 100 permit ip any any 
+
+interface GigabitEthernet0/2
+ip address 10.0.123.3 255.255.255.0
+no shutdown
+
+interface GigabitEthernet0/4
+ip address 10.0.34.3 255.255.255.0
+no shutdown
+
+interface GigabitEthernet0/7
+ip address 10.0.37.3 255.255.255.0
+ip access-group 100 in
+no shutdown
+
+
+router ospf 1
+router-id 3.3.3.3
+network 10.0.23.3 0.0.0.0 area 0
+network 10.0.34.3 0.0.0.0 area 0
+network 10.0.37.3 0.0.0.0 area 0

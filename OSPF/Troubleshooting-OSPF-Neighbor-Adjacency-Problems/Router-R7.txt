@@ -1,0 +1,33 @@
+hostname R7
+
+interface GigabitEthernet0/1
+ip address 10.0.17.7 255.255.255.0
+no shutdown
+
+interface GigabitEthernet0/2
+ip address 10.0.27.7 255.255.255.0
+no shutdown
+
+interface GigabitEthernet0/3
+ip address 10.0.37.7 255.255.255.0
+no shutdown
+
+interface GigabitEthernet0/4
+ip address 10.0.47.7 255.255.255.0
+no shutdown
+
+interface GigabitEthernet0/5
+ip address 10.0.57.7 255.255.255.0
+ip ospf authentication message-digest
+ip ospf message-digest-key 12 md5 CISCO
+no shutdown
+
+
+router ospf 1
+router-id 7.7.7.7
+network 10.0.17.7 0.0.0.0 area 0
+network 10.0.27.7 0.0.0.0 area 0
+network 10.0.37.7 0.0.0.0 area 0
+network 10.0.47.7 0.0.0.0 area 0
+network 10.0.57.7 0.0.0.0 area 0
+passive-interface gigabitEthernet 0/1
