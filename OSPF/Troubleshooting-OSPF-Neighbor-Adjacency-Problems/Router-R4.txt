@@ -21,7 +21,7 @@ no shutdown
 
 
 router ospf 1
-router-id 7.7.7.7
+router-id 4.4.4.4
 network 10.0.0.4 0.0.0.0 area 0
 network 10.0.34.4 0.0.0.0 area 0
 network 10.0.45.4 0.0.0.0 area 0
