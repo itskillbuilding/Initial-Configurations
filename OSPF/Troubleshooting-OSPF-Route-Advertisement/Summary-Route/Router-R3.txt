@@ -12,3 +12,6 @@ router ospf 1
 router-id 3.3.3.3
 network 10.0.23.3 0.0.0.0 area 0
 network 10.0.34.3 0.0.0.0 area 34
+summary-address 10.0.140.0 255.255.252.0
+area 12 range 10.0.140.0 255.255.252.0
+area 34 range 10.0.144.0 255.255.252.0

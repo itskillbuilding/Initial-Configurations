@@ -12,3 +12,4 @@ router ospf 1
 router-id 2.2.2.2
 network 10.0.12.2 0.0.0.0 area 12
 network 10.0.23.2 0.0.0.0 area 0
+summary-address 10.0.150.0 255.255.252.0
