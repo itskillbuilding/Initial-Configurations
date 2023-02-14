@@ -26,7 +26,7 @@ no shutdown
 router ospf 1
 router-id 5.5.5.5
 network 10.0.0.5 0.0.0.0 area 0
-network 10.0.15.5 0.0.0.0 area 15
+network 10.0.15.5 0.0.0.0 area 155
 network 10.0.45.5 0.0.0.0 area 0
 network 10.0.56.5 0.0.0.0 area 0
 network 10.0.57.5 0.0.0.0 area 0

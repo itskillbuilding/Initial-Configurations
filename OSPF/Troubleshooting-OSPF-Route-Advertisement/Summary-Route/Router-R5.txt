@@ -1,0 +1,29 @@
+hostname R5
+
+interface GigabitEthernet0/1
+ip address 10.0.15.5 255.255.255.0
+no shutdown
+
+interface Loopback0
+ip address 10.0.150.5 255.255.255.255
+no shutdown
+
+interface Loopback1
+ip address 10.0.151.5 255.255.255.255
+no shutdown
+
+interface Loopback2
+ip address 10.0.152.5 255.255.255.255
+no shutdown
+
+interface Loopback3
+ip address 10.0.153.5 255.255.255.255
+no shutdown
+
+router eigrp 15
+network 10.0.15.5 0.0.0.0
+network 10.0.150.5 0.0.0.0
+network 10.0.151.5 0.0.0.0
+network 10.0.152.5 0.0.0.0
+network 10.0.153.5 0.0.0.0
+no auto-summary
