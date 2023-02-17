@@ -1,0 +1,16 @@
+hostname R3
+
+interface GigabitEthernet0/0
+ip address 10.0.0.3 255.255.255.0
+ip ospf network non-broadcast
+no shutdown
+
+interface Loopback0
+ip address 10.0.130.3 255.255.255.0
+ip ospf network point-to-point
+
+
+router ospf 1
+router-id 3.3.3.3
+network 10.0.0.3 0.0.0.0 area 0
+network 10.0.130.3 0.0.0.0 area 0
