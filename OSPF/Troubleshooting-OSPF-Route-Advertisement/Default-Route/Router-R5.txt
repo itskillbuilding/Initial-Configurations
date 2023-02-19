@@ -1,0 +1,22 @@
+hostname R5
+
+interface GigabitEthernet0/4
+ip address 10.0.45.5 255.255.255.0
+no shutdown
+
+interface GigabitEthernet0/6
+ip address 10.0.56.5 255.255.255.0
+no shutdown
+
+interface GigabitEthernet0/7
+ip address 10.0.57.5 255.255.255.0
+no shutdown
+
+
+router ospf 1
+router-id 5.5.5.5
+network 10.0.45.5 0.0.0.0 area 345
+network 10.0.56.5 0.0.0.0 area 345
+redistribute ospf 1 metric 1 1 1 1 1
+area 345 nssa
+default-information originate always
