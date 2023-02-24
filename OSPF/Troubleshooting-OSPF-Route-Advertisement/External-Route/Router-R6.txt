@@ -1,0 +1,11 @@
+hostname R6
+
+interface GigabitEthernet0/2
+ip address 10.0.26.6 255.255.255.0
+no shutdown
+
+
+router ospf 1
+router-id 6.6.6.6
+area 26 stub
+network 10.0.26.6 0.0.0.0 area 26
