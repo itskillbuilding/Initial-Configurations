@@ -1,0 +1,22 @@
+hostname R6
+
+interface GigabitEthernet0/5
+ip address 10.0.56.6 255.255.255.0
+no shutdown
+
+interface GigabitEthernet0/2
+ip address 10.0.26.6 255.255.255.0
+no shutdown
+
+interface Loopback0
+ip address 10.0.160.6 255.255.255.0
+ip ospf network point-to-point
+no shutdown
+
+
+router ospf 1
+router-id 6.6.6.6
+area 26 virtual-link 10.0.26.2
+network 10.0.56.6 0.0.0.0 area 0
+network 10.0.26.6 0.0.0.0 area 26
+network 10.0.160.6 0.0.0.0 area 26

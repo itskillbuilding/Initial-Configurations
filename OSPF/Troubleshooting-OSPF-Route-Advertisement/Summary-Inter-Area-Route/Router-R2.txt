@@ -1,0 +1,27 @@
+hostname R2
+
+interface GigabitEthernet0/1
+ip address 10.0.12.2 255.255.255.0
+no shutdown
+
+interface GigabitEthernet0/3
+ip address 10.0.23.2 255.255.255.0
+no shutdown
+
+interface GigabitEthernet0/6
+ip address 10.0.26.2 255.255.255.0
+no shutdown
+
+interface Loopback0
+ip address 10.0.120.2 255.255.255.0
+ip ospf network point-to-point
+no shutdown
+
+router ospf 1
+router-id 2.2.2.2
+area 12 stub no-summary
+area 26 virtual-link 10.0.26.6
+network 10.0.12.2 0.0.0.0 area 12
+network 10.0.23.2 0.0.0.0 area 23
+network 10.0.26.2 0.0.0.0 area 26
+network 10.0.120.2 0.0.0.0 area 12
