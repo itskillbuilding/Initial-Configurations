@@ -7,12 +7,12 @@ no shutdown
 
 interface Loopback0
 ip address 10.0.110.1 255.255.255.0
-ip ospf point-to-point
+ip ospf network point-to-point
 shutdown
 
 interface Loopback1
 ip address 10.0.111.1 255.255.255.0
-ip ospf point-to-point
+ip ospf network point-to-point
 
 router ospf 1
 router-id 1.1.1.1
