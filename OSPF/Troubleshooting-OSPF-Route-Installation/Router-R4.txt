@@ -1,0 +1,29 @@
+hostname R4
+
+interface Serial 1/0
+encapsulation ppp
+ip address 10.0.46.4 255.255.255.0
+no shutdown
+
+interface FastEthernet 0/0
+ip address 10.0.45.4 255.255.255.0
+no shutdown
+
+interface Loopback0
+ip address 10.0.140.4 255.255.255.0
+ip ospf network point-to-point
+
+interface Loopback1
+ip address 10.0.141.4 255.255.255.0
+
+router ospf 1
+router-id 1.1.1.1
+network 10.0.46.4 0.0.0.0 area 0
+network 10.0.140.4 0.0.0.0 area 0
+redistribute eigrp 45 subnets
+
+
+router eigrp 45
+network 10.0.45.4 0.0.0.0
+network 10.0.141.4 0.0.0.0
+no auto-summary

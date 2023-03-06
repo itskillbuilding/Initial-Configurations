@@ -1,0 +1,26 @@
+hostname R1
+
+access-list 1 deny 10.0.141.0 0.0.0.255
+access-list 1 deny 10.0.150.0 0.0.0.255
+access-list 1 permit any
+
+interface GigabitEthernet0/2
+ip address 10.0.12.1 255.255.255.0
+no shutdown
+
+interface GigabitEthernet0/3
+ip address 10.0.13.1 255.255.255.0
+ip ospf network point-to-point
+no shutdown
+
+interface Loopback0
+ip address 10.0.110.1 255.255.255.0
+ip ospf network point-to-point
+
+
+router ospf 1
+router-id 1.1.1.1
+network 10.0.12.1 0.0.0.0 area 12
+network 10.0.13.1 0.0.0.0 area 13
+network 10.0.110.1 0.0.0.0 area 13
+distribute-list 1 in

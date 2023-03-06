@@ -1,0 +1,13 @@
+hostname R5
+
+interface FastEthernet 0/0
+ip address 10.0.45.5 255.255.255.0
+no shutdown
+
+interface Loopback0
+ip address 10.0.150.5 255.255.255.0
+
+router eigrp 45
+network 10.0.45.5 0.0.0.0
+network 10.0.150.5 0.0.0.0
+no auto-summary

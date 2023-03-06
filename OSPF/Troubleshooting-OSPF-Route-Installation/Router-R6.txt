@@ -1,0 +1,32 @@
+hostname R6
+
+interface FastEthernet 0/0
+ip address 10.0.36.6 255.255.255.0
+no shutdown
+
+interface Serial 1/0
+encapsulation ppp
+ip unnumbered loopback1
+no shutdown
+
+interface Loopback0
+ip address 10.0.160.6 255.255.255.0
+ip ospf network point-to-point
+
+interface Loopback1
+ip address 10.0.46.6 255.255.255.0
+
+interface Loopback2
+ip address 10.0.66.6 255.255.255.0
+ip ospf network point-to-point
+
+interface Loopback3
+ip address 10.0.166.6 255.255.255.0
+
+router ospf 1
+router-id 6.6.6.6
+network 10.0.36.6 0.0.0.0 area 0
+network 10.0.46.6 0.0.0.0 area 0
+network 10.0.66.6 0.0.0.0 area 66
+network 10.0.160.6 0.0.0.0 area 0
+redistribute connected subnets
