@@ -15,7 +15,7 @@ no shutdown
 
 router ospf 1
 router-id 4.4.4.4
-area 24 nssa
+area 24 nssa no-summary
 network 10.0.24.4 0.0.0.0 area 24
 network 10.0.45.4 0.0.0.0 area 0
 default-information originate always

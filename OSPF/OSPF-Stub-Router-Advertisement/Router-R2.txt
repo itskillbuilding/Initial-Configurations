@@ -19,7 +19,7 @@ ip ospf network point-to-point
 
 router ospf 1
 router-id 2.2.2.2
-area 24 nssa
+area 24 nssa no-summary
 network 10.0.12.2 0.0.0.0 area 0
 network 10.0.24.2 0.0.0.0 area 24
 network 10.0.120.2 0.0.0.0 area 2
