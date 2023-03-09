@@ -1,0 +1,30 @@
+hostname R2
+
+interface GigabitEthernet0/1
+ip address 10.0.12.2 255.255.255.0
+no shutdown
+
+interface GigabitEthernet0/4
+ip address 10.0.24.2 255.255.255.0
+no shutdown
+
+interface GigabitEthernet0/3
+ip address 10.0.23.2 255.255.255.0
+no shutdown
+
+interface Loopback0
+ip address 10.0.120.2 255.255.255.0
+ip ospf network point-to-point
+
+
+router ospf 1
+router-id 2.2.2.2
+area 24 nssa
+network 10.0.12.2 0.0.0.0 area 0
+network 10.0.24.2 0.0.0.0 area 24
+network 10.0.120.2 0.0.0.0 area 2
+default-information originate always
+redistribute connected
+
+router bgp 65224
+neighbor 10.0.23.3 remote-as 65203

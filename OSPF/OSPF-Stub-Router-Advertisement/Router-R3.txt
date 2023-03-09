@@ -1,0 +1,18 @@
+hostname R3
+
+interface GigabitEthernet0/2
+ip address 10.0.23.3 255.255.255.0
+no shutdown
+
+interface GigabitEthernet0/4
+ip address 10.0.34.3 255.255.255.0
+no shutdown
+
+interface Loopback0
+ip address 10.0.130.3 255.255.255.0
+
+
+router bgp 65203
+neighbor 10.0.23.2 remote-as 65224
+neighbor 10.0.34.4 remote-as 65224
+redistribute connected
