@@ -1,10 +1,10 @@
 hostname R5
 
-interface GigabitEthernet0/4
+interface GigabitEthernet0/1
 ip address 10.0.45.5 255.255.255.0
 no shutdown
 
-interface GigabitEthernet0/6
+interface GigabitEthernet0/0
 ip address 10.0.56.5 255.255.255.0
 no shutdown
 

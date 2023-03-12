@@ -1,10 +1,10 @@
 hostname R4
 
-interface GigabitEthernet0/2
+interface GigabitEthernet0/0
 ip address 10.0.24.4 255.255.255.0
 no shutdown
 
-interface GigabitEthernet0/5
+interface GigabitEthernet0/1
 ip address 10.0.45.4 255.255.255.0
 no shutdown
 
@@ -12,14 +12,18 @@ interface GigabitEthernet0/3
 ip address 10.0.34.4 255.255.255.0
 no shutdown
 
+interface Loopback0
+ip address 10.0.140.4 255.255.255.0
 
 router ospf 1
 router-id 4.4.4.4
-area 24 nssa no-summary
-network 10.0.24.4 0.0.0.0 area 24
+area 4 nssa no-summary
+network 10.0.24.4 0.0.0.0 area 0
 network 10.0.45.4 0.0.0.0 area 0
-default-information originate always
+network 10.0.140.4 0.0.0.0 area 4
+default-information originate always metric-type 1
 redistribute connected
 
 router bgp 65224
 neighbor 10.0.34.3 remote-as 65203
+redistribute ospf 1

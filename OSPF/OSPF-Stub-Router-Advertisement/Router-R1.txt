@@ -1,10 +1,11 @@
 hostname R1
 
-interface GigabitEthernet0/2
+interface Serial 1/0
 ip address 10.0.12.1 255.255.255.0
+keepalive 1
 no shutdown
 
-interface GigabitEthernet0/6
+interface fastEthernet0/0
 ip address 10.0.16.1 255.255.255.0
 no shutdown
 

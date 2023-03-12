@@ -1,14 +1,15 @@
 hostname R2
 
-interface GigabitEthernet0/1
+interface Serial 1/0
 ip address 10.0.12.2 255.255.255.0
+keepalive 1
 no shutdown
 
-interface GigabitEthernet0/4
+interface fastEthernet0/0
 ip address 10.0.24.2 255.255.255.0
 no shutdown
 
-interface GigabitEthernet0/3
+interface fastEthernet0/1
 ip address 10.0.23.2 255.255.255.0
 no shutdown
 
@@ -19,12 +20,12 @@ ip ospf network point-to-point
 
 router ospf 1
 router-id 2.2.2.2
-area 24 nssa no-summary
 network 10.0.12.2 0.0.0.0 area 0
-network 10.0.24.2 0.0.0.0 area 24
+network 10.0.24.2 0.0.0.0 area 0
 network 10.0.120.2 0.0.0.0 area 2
-default-information originate always
+default-information originate always metric-type 1
 redistribute connected
 
 router bgp 65224
 neighbor 10.0.23.3 remote-as 65203
+redistribute ospf 1
