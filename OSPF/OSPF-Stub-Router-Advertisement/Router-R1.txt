@@ -3,6 +3,7 @@ hostname R1
 interface Serial 1/0
 ip address 10.0.12.1 255.255.255.0
 keepalive 1
+ip ospf cost 1
 no shutdown
 
 interface fastEthernet0/0

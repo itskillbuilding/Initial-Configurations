@@ -3,15 +3,16 @@ hostname R2
 interface Serial 1/0
 ip address 10.0.12.2 255.255.255.0
 keepalive 1
-no shutdown
+ip ospf cost 1
+shutdown
 
 interface fastEthernet0/0
 ip address 10.0.24.2 255.255.255.0
-no shutdown
+shutdown
 
 interface fastEthernet0/1
 ip address 10.0.23.2 255.255.255.0
-no shutdown
+shutdown
 
 interface Loopback0
 ip address 10.0.120.2 255.255.255.0
@@ -29,3 +30,4 @@ redistribute connected
 router bgp 65224
 neighbor 10.0.23.3 remote-as 65203
 redistribute ospf 1
+
