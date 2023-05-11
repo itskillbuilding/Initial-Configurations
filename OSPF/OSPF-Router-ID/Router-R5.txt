@@ -1,0 +1,15 @@
+hostname R5
+!
+interface loopback0
+ip address 10.0.50.5 255.255.255.255
+!
+interface loopback1
+ip address 10.0.51.5 255.255.255.255
+!
+interface gigabitethernet 0/0
+ip address 10.0.234.5 255.255.255.0
+no shutdown
+!
+router ospf 1
+router-id 5.5.5.5
+network 10.0.0.0 0.0.255.255 area 0

@@ -1,0 +1,24 @@
+hostname R2
+!
+interface loopback0
+ip address 10.0.20.2 255.255.255.255
+shutdown
+!
+interface loopback1
+ip address 10.0.21.2 255.255.255.255
+shutdown
+!
+interface loopback2
+ip address 10.0.22.2 255.255.255.255
+shutdown
+!
+interface gigabitethernet 0/1
+ip address 10.0.12.2 255.255.255.0
+no shutdown
+!
+interface gigabitethernet 0/0
+ip address 10.0.234.2 255.255.255.0
+no shutdown
+!
+router ospf 1
+network 0.0.0.0 255.255.255.255 area 0
