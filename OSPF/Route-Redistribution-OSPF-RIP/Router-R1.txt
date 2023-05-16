@@ -1,0 +1,21 @@
+hostname R1
+interface GigabitEthernet0/2
+ip address 10.0.12.1 255.255.255.0
+no shutdown
+
+interface GigabitEthernet0/3
+ip address 10.0.13.1 255.255.255.0
+no shutdown
+
+interface GigabitEthernet0/4
+ip address 11.0.14.1 255.255.255.0
+no shutdown
+
+router rip
+version 2
+network 10.0.0.0
+no auto-summary
+
+router ospf 1
+router-id 1.1.1.1
+network 11.0.14.1 0.0.0.0 area 0
