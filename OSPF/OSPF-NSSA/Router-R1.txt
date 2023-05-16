@@ -1,0 +1,9 @@
+hostname R1
+
+interface GigabitEthernet0/2
+ip address 10.0.12.1 255.255.255.0
+no shutdown
+
+router eigrp 12
+network 10.0.12.1 0.0.0.0
+no auto-summary
