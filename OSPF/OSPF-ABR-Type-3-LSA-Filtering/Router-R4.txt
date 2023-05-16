@@ -1,0 +1,29 @@
+hostname R4
+
+interface loopback 0
+ip ospf network point-to-point
+ip address 10.0.20.4 255.255.255.0
+
+interface loopback 1
+ip ospf network point-to-point
+ip address 10.0.21.4 255.255.255.0
+
+interface loopback 2
+ip ospf network point-to-point
+ip address 10.0.22.4 255.255.255.0
+
+interface loopback 3
+ip ospf network point-to-point
+ip address 10.0.23.4 255.255.255.0
+
+interface GigabitEthernet0/3
+ip address 10.0.34.4 255.255.255.0
+no shutdown
+
+router ospf 1
+router-id 4.4.4.4
+network 10.0.20.4 0.0.0.0 area 34
+network 10.0.21.4 0.0.0.0 area 34
+network 10.0.22.4 0.0.0.0 area 34
+network 10.0.23.4 0.0.0.0 area 34
+network 10.0.34.4 0.0.0.0 area 34

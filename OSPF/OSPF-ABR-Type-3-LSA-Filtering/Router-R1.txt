@@ -1,0 +1,29 @@
+hostname R1
+
+interface loopback 0
+ip address 10.0.0.1 255.255.255.0
+ip ospf network point-to-point
+
+interface loopback 1
+ip address 10.0.1.1 255.255.255.0
+ip ospf network point-to-point
+
+interface loopback 2
+ip address 10.0.2.1 255.255.255.0
+ip ospf network point-to-point
+
+interface loopback 3
+ip address 10.0.3.1 255.255.255.0
+ip ospf network point-to-point
+
+interface GigabitEthernet0/2
+ip address 10.0.12.1 255.255.255.0
+no shutdown
+
+router ospf 1
+router-id 1.1.1.1
+network 10.0.0.1 0.0.0.0 area 12
+network 10.0.1.1 0.0.0.0 area 12
+network 10.0.2.1 0.0.0.0 area 12
+network 10.0.3.1 0.0.0.0 area 12
+network 10.0.12.1 0.0.0.0 area 12
