@@ -1,0 +1,13 @@
+hostname R3
+
+interface fastethernet 0/0
+ip address 10.0.13.3 255.255.255.0
+no shutdown
+
+interface fastethernet 0/1
+bandwidth 2500000
+ip address 10.0.34.3 255.255.255.0
+no shutdown
+
+router ospf 1
+network 0.0.0.0 255.255.255.255 area 0
