@@ -1,0 +1,19 @@
+hostname R9
+
+interface gigabitethernet 0/3
+ip address 10.0.39.9 255.255.255.0
+no shutdown
+
+interface gigabitethernet 0/8
+ip address 10.0.89.9 255.255.255.0
+no shutdown
+
+interface gigabitethernet 0/10
+ip address 10.0.91.9 255.255.255.0
+no shutdown
+
+router ospf 1
+router-id 9.9.9.9
+network 10.0.39.9 0.0.0.0 area 13489
+network 10.0.89.9 0.0.0.0 area 89
+network 10.0.91.9 0.0.0.0 area 91

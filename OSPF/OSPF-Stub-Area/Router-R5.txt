@@ -1,0 +1,9 @@
+hostname R5
+
+interface gigabitethernet 0/2
+ip address 10.0.25.5 255.255.255.0
+no shutdown
+
+router ospf 1
+router-id 5.5.5.5
+network 10.0.25.5 0.0.0.0 area 25

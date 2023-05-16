@@ -1,0 +1,9 @@
+hostname R6
+
+interface gigabitethernet 0/2
+ip address 10.0.26.6 255.255.255.0
+no shutdown
+
+router eigrp 200
+network 10.0.26.6 0.0.0.0
+no auto-summary

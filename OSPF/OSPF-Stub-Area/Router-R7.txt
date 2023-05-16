@@ -1,0 +1,14 @@
+hostname R7
+
+interface gigabitethernet 0/1
+ip address 10.0.17.7 255.255.255.0
+no shutdown
+
+interface gigabitethernet 0/4
+ip address 10.0.47.7 255.255.255.0
+no shutdown
+
+router eigrp 100
+network 10.0.17.7 0.0.0.0
+network 10.0.47.7 0.0.0.0
+no auto-summary

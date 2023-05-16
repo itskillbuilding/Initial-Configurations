@@ -1,0 +1,23 @@
+hostname R3
+interface gigabitethernet 0/1
+ip address 10.0.13.3 255.255.255.0
+no shutdown
+
+interface gigabitethernet 0/4
+ip address 10.0.34.3 255.255.255.0
+no shutdown
+
+interface gigabitethernet 0/8
+ip address 10.0.38.3 255.255.255.0
+no shutdown
+
+interface gigabitethernet 0/9
+ip address 10.0.39.3 255.255.255.0
+no shutdown
+
+router ospf 1
+router-id 3.3.3.3
+network 10.0.13.3 0.0.0.0 area 13489
+network 10.0.34.3 0.0.0.0 area 13489
+network 10.0.38.3 0.0.0.0 area 13489
+network 10.0.39.3 0.0.0.0 area 13489

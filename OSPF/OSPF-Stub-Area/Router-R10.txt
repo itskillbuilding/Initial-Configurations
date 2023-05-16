@@ -1,0 +1,9 @@
+hostname R10
+
+interface gigabitethernet 0/9
+ip address 10.0.91.10 255.255.255.0
+no shutdown
+
+router ospf 1
+router-id 10.10.10.10
+network 10.0.91.10 0.0.0.0 area 91

@@ -1,0 +1,21 @@
+hostname R4
+interface gigabitethernet 0/1
+ip address 10.0.14.4 255.255.255.0
+no shutdown
+
+interface gigabitethernet 0/3
+ip address 10.0.34.4 255.255.255.0
+no shutdown
+
+interface gigabitethernet 0/7
+ip address 10.0.47.4 255.255.255.0
+no shutdown
+
+router ospf 1
+router-id 4.4.4.4
+network 10.0.14.4 0.0.0.0 area 13489
+network 10.0.34.4 0.0.0.0 area 13489
+
+router eigrp 100
+network 10.0.47.4 0.0.0.0
+no auto-summary
