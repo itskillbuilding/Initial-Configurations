@@ -1,0 +1,18 @@
+hostname R2
+!
+interface loopback0
+ip address 2.2.2.2 255.255.255.255
+!
+interface fastethernet 0/0
+ip address 10.0.12.2 255.255.255.0
+no shutdown
+!
+interface fastethernet 0/1
+ip address 10.0.23.2 255.255.255.0
+no shutdown
+!
+router ospf 1
+network 2.2.2.2 0.0.0.0 area 0
+network 10.0.12.2 0.0.0.0 area 0
+network 10.0.23.2 0.0.0.0 area 1
+area 1 virtual-link 3.3.3.3
