@@ -1,0 +1,18 @@
+hostname R8
+
+interface GigabitEthernet0/2
+ip address 10.0.28.8 255.255.255.0
+no shutdown
+
+interface GigabitEthernet0/7
+ip address 10.0.78.8 255.255.255.0
+no shutdown
+exit
+
+router ospf 1
+router-id 8.8.8.8
+network 10.0.28.8 0.0.0.0 area 28
+
+router eigrp 100
+network 10.0.78.8 0.0.0.0
+no auto-summary
