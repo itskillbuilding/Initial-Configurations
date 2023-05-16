@@ -1,0 +1,9 @@
+hostname R6
+
+router ospf 1
+router-id 6.6.6.6
+
+interface serial 1/1
+ip address 10.0.16.6 255.255.255.0
+ip ospf 1 area 16
+no shutdown

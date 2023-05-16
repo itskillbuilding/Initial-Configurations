@@ -1,0 +1,20 @@
+hostname R4
+
+router rip
+version 2
+network 10.0.0.0
+no auto-summary
+redistribute ospf 1 metric 1
+
+router ospf 1
+router-id 4.4.4.4
+redistribute rip subnets
+
+interface FastEthernet0/0
+ip address 10.0.0.4 255.255.255.0
+ip ospf 1 area 0
+no shut
+
+interface FastEthernet0/1
+ip address 10.0.45.4 255.255.255.0
+no shutdown

@@ -1,0 +1,24 @@
+hostname R1
+
+router ospf 1
+router-id 1.1.1.1
+
+interface FastEthernet0/0
+ip address 10.0.0.1 255.255.255.0
+ip ospf 1 area 0
+no shut
+
+interface FastEthernet0/1
+ip address 10.0.13.1 255.255.255.0
+ip ospf 1 area 13
+no shutdown
+
+interface Serial1/0
+ip address 10.0.12.1 255.255.255.0
+ip ospf 1 area 12
+no shut
+
+interface Serial1/1
+ip address 10.0.16.1 255.255.255.0
+ip ospf 1 area 16
+no shutdown

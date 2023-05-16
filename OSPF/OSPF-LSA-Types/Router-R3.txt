@@ -1,0 +1,18 @@
+hostname R3
+
+router ospf 1
+router-id 3.3.3.3
+
+interface FastEthernet0/0
+ip address 10.0.0.3 255.255.255.0
+ip ospf 1 area 0
+no shut
+
+interface FastEthernet0/1
+ip address 10.0.13.3 255.255.255.0
+ip ospf 1 area 13
+no shut
+
+interface loopback0
+ip address 10.0.3.3 255.255.255.0
+ip ospf 1 area 3
