@@ -1,0 +1,15 @@
+hostname R2
+interface loopback 0
+ip address 10.0.2.2 255.255.255.0
+
+interface loopback 1
+ip address 10.0.20.2 255.255.255.0
+
+interface gigabitethernet 0/0
+ip address 10.0.0.2 255.255.255.0
+no shutdown
+
+
+interface gigabitethernet 0/1
+ip address 10.0.12.2 255.255.255.0
+no shutdown

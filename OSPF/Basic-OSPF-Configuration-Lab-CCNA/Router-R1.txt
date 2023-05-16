@@ -1,0 +1,12 @@
+hostname R1
+interface loopback 0
+ip address 10.0.1.1 255.255.255.0
+
+interface gigabitethernet 0/0
+ip address 10.0.0.1 255.255.255.0
+no shutdown
+
+
+interface gigabitethernet 0/2
+ip address 10.0.12.1 255.255.255.0
+no shutdown
