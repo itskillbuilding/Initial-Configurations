@@ -1,0 +1,18 @@
+hostname R2
+
+interface GigabitEthernet0/1
+ip address 10.0.12.2 255.255.255.0
+no shutdown
+
+interface GigabitEthernet0/3
+ip address 10.0.123.2 255.255.255.0
+no shutdown
+
+router eigrp 12
+network 10.0.12.2 0.0.0.0
+no auto-summary
+
+router ospf 1
+router-id 2.2.2.2
+network 10.0.123.2 0.0.0.0 area 23
+redistribute eigrp 12 subnets
